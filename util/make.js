@@ -72,7 +72,7 @@ steal('steal/build/pluginify', function() {
 				wrapInner: [
 					'\nYUI().add("can", function(Y) {\ncan.Y = Y;\n',
 					'}, "0.0.1", {\nrequires: ["node", "io-base", "querystring", "event-focus", "array-extras"],\n optional: ["selector-css2", "selector-css3"]\n});\n'
-				],
+				]
 			}
 			
 		},	
@@ -115,9 +115,9 @@ steal('steal/build/pluginify', function() {
 				namespace : "can",
 				onefunc : true,
 				compress: compress,
-				skipCallbacks: true,
+				skipCallbacks: true
 			}, options ));
-			
+
 			// Strip multiline comments from uncompressed files
 			if ( ! compress ) {
 
@@ -152,7 +152,7 @@ steal('steal/build/pluginify', function() {
 
 	each( plugins.standAlone, function( output, input ) {
 
-		var code; 
+		var code;
 
 		steal.build.pluginify("can/" + input + ".js", {
 			out: "can/dist/edge/can." + output + ".js",
@@ -169,7 +169,7 @@ steal('steal/build/pluginify', function() {
 	// Build can.fixture and can.observe.backup seperately
 	// They need can/util/object, so we can't use the standAlone option
 	each( plugins.can_util_object, function( output, input ) {
-		
+
 		steal.build.pluginify("can/" + input + ".js", {
 			out: "can/dist/edge/can." + output + ".js",
 			global: "this.can",

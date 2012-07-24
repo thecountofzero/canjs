@@ -1017,16 +1017,14 @@ steal('can/observe', function() {
 		}
 	});
 	
-
-	
-				
-	can.each({makeFindAll : "models", makeFindOne: "model"}, function(method, name){
-		can.Model[name] = function(oldFind){
-			return function(params, success, error){
-				return pipe( oldFind.call( this, params ),
-							this, 
-							method ).then(success,error)
-			}
+	can.each({
+		makeFindAll : "models",
+		makeFindOne: "model"
+	}, function( method, name ) {
+		can.Model[name] = function( oldFind ) {
+			return function( params, success, error ) {
+				return pipe( oldFind.call( this, params ), this, method ).then( success, error );
+			};
 		};
 	});
 				
