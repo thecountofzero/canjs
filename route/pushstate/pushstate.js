@@ -1,7 +1,7 @@
 steal('can/route', function() {
 
     // I realize this a jQuery-based solution and this will need to use can.bind or something similar
-    $(document).on('click', 'a', function(e) {
+    can.$(document).on('click', 'a', function(e) {
 
         var curParams,
             href = $(this).attr("href");
@@ -11,6 +11,7 @@ steal('can/route', function() {
             // Don't think this is needed here as it will be handled inside the change event handler for can.route
             //history.pushState(null, null, href);
 
+            console.log(href);
             e.preventDefault();
         }
         else {  
@@ -36,6 +37,7 @@ steal('can/route', function() {
 
     var doPopState = function() {
         console.log("POPSTATE: pathname: "+location.pathname);
+        // FIXME: Need to update the route accordingly
 
         // Rest of code for popstate handling goes here...
     };
